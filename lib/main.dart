@@ -4,9 +4,17 @@ import 'package:app_links/app_links.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:citatoios/pages/start_page.dart';
 import 'package:citatoios/pages/home_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 Future<void> main() async {
  WidgetsFlutterBinding.ensureInitialized();
+
+ // Initialize Firebase
+  await Firebase.initializeApp();
+  
+  // Initialize Analytics
+  final analytics = FirebaseAnalytics.instance;
  
  print("Starting initialization...");
  
@@ -27,6 +35,11 @@ Future<void> main() async {
 
 class MyApp extends StatefulWidget {
  const MyApp({super.key});
+
+ // Create analytics instance
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  // Create analytics observer for navigation tracking
+  static FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
 
  @override
  State<MyApp> createState() => _MyAppState();

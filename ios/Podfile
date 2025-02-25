@@ -6,6 +6,13 @@ install! 'cocoapods', :deterministic_uuids => false
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
+# pod 'Firebase/Analytics', :modular_headers => true
+# pod 'FirebaseCoreInternal', :modular_headers => true
+# pod 'GoogleUtilities', :modular_headers => true
+# pod 'FirebaseCore', :modular_headers => true
+# or pod 'Firebase/AnalyticsWithoutAdIdSupport'
+# for Analytics without IDFA collection capability
+
 project 'Runner', {
   'Debug' => :debug,
   'Profile' => :release,

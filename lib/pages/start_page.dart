@@ -121,19 +121,37 @@ class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('citato.ai'),
-      ),
-      body: Center( 
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SignInButton(
-            Buttons.Google,
-            onPressed: _googleSignIn,
-            ),
-          ],
-      ),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            stops: [0.1, 0.9],
+            colors: [
+              Color.fromARGB(255, 124, 58, 237),
+              Color.fromARGB(255, 55, 48, 163),
+            ],
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'citato.ai',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SignInButton(
+                Buttons.Google,
+                onPressed: _googleSignIn,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
